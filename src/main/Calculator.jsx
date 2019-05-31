@@ -31,9 +31,11 @@ export default class Calculator extends Component {
     }
 
     let current = 1;
+    let clearDisplay = false;
     const values = [...this.state.values];
     if (operation === "=") {
       current = 0;
+      clearDisplay = true;
       operation = null;
       values[0] = this.calculate(this.state.operation, values[0], values[1]);
     }
@@ -42,7 +44,8 @@ export default class Calculator extends Component {
       displayValue: values[0],
       operation,
       current,
-      values
+      values,
+      clearDisplay
     });
   }
 
